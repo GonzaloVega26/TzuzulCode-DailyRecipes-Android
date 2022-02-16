@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 
 class HomeFragment : Fragment() {
@@ -17,16 +18,28 @@ class HomeFragment : Fragment() {
         Foods.randomLikes(),
         R.drawable.ic_launcher_background
     )
+    val foods = arrayOf(spaghetti,spaghetti,spaghetti,spaghetti,spaghetti,spaghetti)
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val nombrecomida = root.findViewById<TextView>(R.id.nombre_comida)
-        nombrecomida.text = spaghetti.name
-        val imagen = root.findViewById<ImageView>(R.id.imagencita)
-            imagen.setImageResource(spaghetti.image)
+        val linearParent = root.findViewById<LinearLayout>(R.id.linear_parent)
+
+        for(food in foods){
+        val newNombre = TextView(context)
+        val newLikes = TextView(context)
+        val newImg = ImageView(context)
+            newNombre.text = food.name
+            newLikes.text = food.likes.toString()
+            newImg.setImageResource(food.image)
+
+            linearParent.addView(newNombre)
+            linearParent.addView(newLikes)
+            linearParent.addView(newImg)
+        }
         return root
     }
 
