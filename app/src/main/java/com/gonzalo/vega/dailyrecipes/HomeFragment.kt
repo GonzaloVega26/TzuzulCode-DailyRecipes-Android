@@ -5,42 +5,31 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.ListView
+import androidx.appcompat.app.AppCompatActivity
+import com.gonzalo.vega.dailyrecipes.adapters.FoodAdapter
+
+import com.gonzalo.vega.dailyrecipes.datasource.DataSource
 
 class HomeFragment : Fragment() {
-    val spaghetti = Foods(
-        "Spaghetti Bologna",
-        "Italian spaghetti with red sauce with meatballs",
-        arrayOf("Pasta", "Italian"),
-        DifficultyEnum.MEDIUM,
-        Foods.randomLikes(),
-        R.drawable.ic_launcher_background
-    )
-    val foods = arrayOf(spaghetti,spaghetti,spaghetti,spaghetti,spaghetti,spaghetti)
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        val context = container!!.context
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val linearParent = root.findViewById<LinearLayout>(R.id.linear_parent)
 
-        for(food in foods){
-        val newNombre = TextView(context)
-        val newLikes = TextView(context)
-        val newImg = ImageView(context)
-            newNombre.text = food.name
-            newLikes.text = food.likes.toString()
-            newImg.setImageResource(food.image)
 
-            linearParent.addView(newNombre)
-            linearParent.addView(newLikes)
-            linearParent.addView(newImg)
-        }
+        val listOfFoods = DataSource().generatesFoods()
+        val listView = root.findViewById<ListView>(R.id.list_view)
+        val adapter = FoodAdapter(context, listOfFoods)
+
+        listView.adapter = adapter
+
         return root
     }
+
 
 }

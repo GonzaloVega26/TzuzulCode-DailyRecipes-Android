@@ -1,9 +1,8 @@
-package com.gonzalo.vega.dailyrecipes
+package com.gonzalo.vega.dailyrecipes.model
 
-import android.media.Image
 import kotlin.math.roundToInt
 
-class Foods(
+data class Food(
     val name: String,
     val description: String,
     val category: Array<String>,
@@ -14,5 +13,6 @@ class Foods(
     companion object{
         fun randomLikes() : Int = (Math.random() * 100).roundToInt()
     }
+
 
 }

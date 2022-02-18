@@ -1,4 +1,4 @@
-package com.gonzalo.vega.dailyrecipes
+package com.gonzalo.vega.dailyrecipes.model
 
 enum class DifficultyEnum {
     EASY, MEDIUM, HARD, PRO;
