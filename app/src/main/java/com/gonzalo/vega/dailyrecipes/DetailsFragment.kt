@@ -17,7 +17,7 @@ class DetailsFragment : Fragment() {
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_details, container, false)
         val bundle = DetailsFragmentArgs.fromBundle(requireArguments())
-        val listOfFood = DataSource.generatesFoods()
+        val listOfFood = DataSource.listOfFoods
         listOfFood.first{it.id == bundle.foodId}
 
         val food = listOfFood.first{it.id == bundle.foodId}
