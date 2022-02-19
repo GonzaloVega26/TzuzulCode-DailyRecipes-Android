@@ -4,6 +4,9 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.view.*
 import android.widget.*
+import androidx.navigation.findNavController
+import com.gonzalo.vega.dailyrecipes.HomeFragment
+import com.gonzalo.vega.dailyrecipes.HomeFragmentDirections
 import com.gonzalo.vega.dailyrecipes.R
 import com.gonzalo.vega.dailyrecipes.model.Food
 
@@ -40,12 +43,11 @@ class FoodAdapter(
         val likeButton = viewRoot.findViewById<Button>(R.id.test_button)
         likeButton.setOnLongClickListener{
             giveLike(food,likes)
-
-
         }
 
         likeButton.setOnClickListener{
-            Toast.makeText(context,"Click",Toast.LENGTH_SHORT).show()
+            val action = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(food.id)
+            viewRoot.findNavController().navigate(action)
 
         }
 
@@ -56,9 +58,11 @@ class FoodAdapter(
     private fun giveLike(food: Food, textView : TextView): Boolean {
         if(food.isLiked){
             food.likes--
+            food.isLiked = false
             Toast.makeText(context,"FOOD DISLIKED",Toast.LENGTH_LONG).show()
         }else{
             food.likes++
+            food.isLiked = true
         Toast.makeText(context,"FOOD LIKED",Toast.LENGTH_LONG).show()
         }
 

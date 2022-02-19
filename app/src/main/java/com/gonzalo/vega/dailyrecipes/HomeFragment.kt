@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
 
-        val listOfFoods = DataSource().generatesFoods()
+        val listOfFoods = DataSource.generatesFoods()
         val listView = root.findViewById<ListView>(R.id.list_view)
         val adapter = FoodAdapter(context, listOfFoods)
 
