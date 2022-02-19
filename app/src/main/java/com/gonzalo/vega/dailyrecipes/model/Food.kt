@@ -7,8 +7,9 @@ data class Food(
     val description: String,
     val category: Array<String>,
     val difficulty:Enum<DifficultyEnum>,
-    val likes:Int,
-    val image: Int
+    var likes:Int,
+    val image: Int,
+    var isLiked: Boolean = false
     ) {
     companion object{
         fun randomLikes() : Int = (Math.random() * 100).roundToInt()

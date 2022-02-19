@@ -20,6 +20,13 @@
         android:contentDescription="@string/shows_photo_of_food"
         tools:src="@tools:sample/avatars" />
 
+    <Button
+        android:id="@+id/test_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/like"
+        tools:text="Button" />
+
     <TextView
         android:id="@+id/food_likes"
         android:layout_width="wrap_content"

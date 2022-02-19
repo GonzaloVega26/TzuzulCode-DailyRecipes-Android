@@ -2,17 +2,13 @@ package com.gonzalo.vega.dailyrecipes.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ImageView
-import android.widget.TextView
+import android.view.*
+import android.widget.*
 import com.gonzalo.vega.dailyrecipes.R
 import com.gonzalo.vega.dailyrecipes.model.Food
 
 class FoodAdapter(
-   context: Context,
+   private val context: Context,
     private val listOfFoods: ArrayList<Food>
 ) : BaseAdapter() {
     private val inflater: LayoutInflater =
@@ -37,9 +33,38 @@ class FoodAdapter(
 
         viewRoot.findViewById<TextView>(R.id.food_name).text = food.name
         viewRoot.findViewById<ImageView>(R.id.food_image).setImageResource(food.image)
-        viewRoot.findViewById<TextView>(R.id.food_likes).text = food.likes.toString()
+        val likes = viewRoot.findViewById<TextView>(R.id.food_likes)
+
+        likes.text = food.likes.toString()
+
+        val likeButton = viewRoot.findViewById<Button>(R.id.test_button)
+        likeButton.setOnLongClickListener{
+            giveLike(food,likes)
+
+
+        }
+
+        likeButton.setOnClickListener{
+            Toast.makeText(context,"Click",Toast.LENGTH_SHORT).show()
+
+        }
+
 
         return viewRoot
     }
+
+    private fun giveLike(food: Food, textView : TextView): Boolean {
+        if(food.isLiked){
+            food.likes--
+            Toast.makeText(context,"FOOD DISLIKED",Toast.LENGTH_LONG).show()
+        }else{
+            food.likes++
+        Toast.makeText(context,"FOOD LIKED",Toast.LENGTH_LONG).show()
+        }
+
+        textView.text = food.likes.toString()
+        return true
+    }
 }
+
 
