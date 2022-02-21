@@ -1,37 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
+    android:layout_margin="15dp"
+    android:paddingTop="20dp"
     android:gravity="center"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/food_name"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        tools:text="Test Text" />
+        android:textAlignment="center"
 
-    <ImageView
-        android:id="@+id/food_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        tools:text="Test Text"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+        android:background="#F0F89F"
+        />
+
+    <ImageButton
+        android:id="@+id/food_image_button"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
         android:contentDescription="@string/shows_photo_of_food"
         tools:src="@tools:sample/avatars" />
 
-    <Button
-        android:id="@+id/test_button"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="@string/like"
-        tools:text="Button" />
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        >
 
-    <TextView
-        android:id="@+id/food_likes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Test 100 likes" />
+        <TextView
+            android:id="@+id/food_likes_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textSize="14sp"
+            tools:text="Test 100 likes"
+
+
+            />
+        <TextView
+            android:id="@+id/food_likes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textAlignment="viewEnd"
+            tools:text="100"
+
+            />
+
+        <ImageView
+            android:id="@+id/heart_like"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/icon_for_liked_images"
+            android:src="@drawable/heart"
+            android:visibility="visible"
+            tools:visibility="visible" />
+    </LinearLayout>
 
 
 </LinearLayout>

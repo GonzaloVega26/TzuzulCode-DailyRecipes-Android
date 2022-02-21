@@ -6,10 +6,29 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".HomeFragment">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/app_background"
+        android:scaleType="centerCrop"
+        />
+    <Button
+        android:id="@+id/refresh_button"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:text="@string/refresh"
+        />
     <ListView
         android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:dividerHeight="0dp"
+        android:divider="@null"/>
+</FrameLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

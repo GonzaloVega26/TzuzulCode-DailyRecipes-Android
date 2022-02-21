@@ -22,7 +22,10 @@ class DetailsFragment : Fragment() {
 
         val food = listOfFood.first{it.id == bundle.foodId}
 
-        rootView.findViewById<TextView>(R.id.food_name_card).text = food.name + " " + food.likes.toString()
+        rootView.findViewById<TextView>(R.id.food_name_card).text = food.name
+        rootView.findViewById<TextView>(R.id.food_category_card).text = food.category.joinToString()
+        rootView.findViewById<TextView>(R.id.food_difficulty_card).text = food.difficulty.toString()
+        rootView.findViewById<TextView>(R.id.food_description_card).text = food.description
         rootView.findViewById<ImageView>(R.id.food_image_card).setImageResource(food.image)
 
         return  rootView

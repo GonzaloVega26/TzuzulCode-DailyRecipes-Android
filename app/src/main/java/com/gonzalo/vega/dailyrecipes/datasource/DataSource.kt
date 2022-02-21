@@ -22,7 +22,7 @@ class DataSource {
             )
             val spaghettiPesto = Food(
                 1,
-                "Spaghetti Bologna",
+                "Spaghetti al Pesto",
                 "Description",
                 arrayOf("Pasta", "Italian"),
                 DifficultyEnum.MEDIUM,
@@ -77,7 +77,7 @@ class DataSource {
             )
             val frenchToast = Food(
                 7,
-                "Bennedict Eggs",
+                "French Toasts",
                 "Description",
                 arrayOf("Breakfast", "Fancy"),
                 DifficultyEnum.EASY,
@@ -86,7 +86,7 @@ class DataSource {
             )
             val paella = Food(
                 8,
-                "Bennedict Eggs",
+                "Paella",
                 "Description",
                 arrayOf("Spanish", "SeaFood"),
                 DifficultyEnum.MEDIUM,
